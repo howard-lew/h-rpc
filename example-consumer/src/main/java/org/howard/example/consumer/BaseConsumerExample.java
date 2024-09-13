@@ -6,7 +6,6 @@ import org.howard.hrpc.proxy.ServiceProxyFactory;
 
 /**
  * @Author HowardLiu
- * @Date 2024/9/12
  */
 public class BaseConsumerExample {
     public static void main(String[] args) {
