@@ -15,5 +15,8 @@ public class BaseConsumerExample {
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User u = userService.getUser(user);
         System.out.println(u);
+
+        int num = userService.getNum();
+        System.out.println(num);
     }
 }

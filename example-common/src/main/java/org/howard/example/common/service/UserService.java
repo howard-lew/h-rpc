@@ -6,7 +6,6 @@ import org.howard.example.common.model.User;
  * 用户服务
  *
  * @Author HowardLiu
- *
  */
 public interface UserService {
     /**
@@ -16,4 +15,8 @@ public interface UserService {
      * @return
      */
     User getUser(User user);
+
+    default int getNum() {
+        return 1;
+    }
 }

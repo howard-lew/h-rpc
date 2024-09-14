@@ -6,7 +6,6 @@ import lombok.Data;
  * RPC 框架配置选项
  *
  * @Author HowardLiu
- *
  */
 @Data
 public class RpcConfig {
@@ -26,4 +25,8 @@ public class RpcConfig {
      * 服务端口
      */
     private int port = 8080;
+    /**
+     * 是否开启 mock
+     */
+    private boolean mock = false;
 }
