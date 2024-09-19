@@ -1,4 +1,4 @@
-package org.howard.example.provider;
+package org.howard.example.provider.impl;
 
 import org.howard.example.common.model.User;
 import org.howard.example.common.service.UserService;
