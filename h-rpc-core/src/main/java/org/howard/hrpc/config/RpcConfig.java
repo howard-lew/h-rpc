@@ -1,6 +1,7 @@
 package org.howard.hrpc.config;
 
 import lombok.Data;
+import org.howard.hrpc.serializer.SerializerKeys;
 
 /**
  * RPC 框架配置选项
@@ -29,4 +30,8 @@ public class RpcConfig {
      * 是否开启 mock
      */
     private boolean mock = false;
+    /**
+     * 序列化器
+     */
+    private String serializer = SerializerKeys.JDK;
 }

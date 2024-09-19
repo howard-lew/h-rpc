@@ -1,7 +1,8 @@
 package org.howard.example.consumer;
 
-import org.howard.hrpc.config.RpcConfig;
-import org.howard.hrpc.utils.ConfigUtils;
+import org.howard.example.common.model.User;
+import org.howard.example.common.service.UserService;
+import org.howard.hrpc.proxy.ServiceProxyFactory;
 
 /**
  * 服务消费者示例
@@ -10,7 +11,14 @@ import org.howard.hrpc.utils.ConfigUtils;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-        RpcConfig hrpc = ConfigUtils.loadConfig(RpcConfig.class, "hrpc");
-        System.out.println(hrpc);
+        User user = new User();
+        user.setName("howard");
+        // 调用服务提供者 UserService
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
+        User u = userService.getUser(user);
+        System.out.println(u);
+
+        int num = userService.getNum();
+        System.out.println(num);
     }
 }

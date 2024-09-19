@@ -1,0 +1,4 @@
+jdk=org.howard.hrpc.serializer.JdkSerializer
+hessian=org.howard.hrpc.serializer.HessianSerializer
+json=org.howard.hrpc.serializer.JsonSerializer
+kryo=org.howard.hrpc.serializer.KryoSerializer

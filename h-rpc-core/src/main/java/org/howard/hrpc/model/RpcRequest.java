@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
+ * RPC 请求
+ *
  * @Author HowardLiu
  * 
  */
@@ -15,21 +17,21 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RpcRes implements Serializable {
+public class RpcRequest implements Serializable {
     /**
-     * 返回数据
+     * 服务名
      */
-    private Object data;
+    private String serviceName;
     /**
-     * 数据类型
+     * 方法名
      */
-    private Class<?> dataType;
+    private String methodName;
     /**
-     * 响应信息
+     * 参数
      */
-    private String message;
+    private Object[] args;
     /**
-     * 异常信息
+     * 参数类型
      */
-    private Exception exception;
+    private Class<?>[] paramTypes;
 }

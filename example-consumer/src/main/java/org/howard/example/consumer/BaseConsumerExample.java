@@ -1,22 +1,14 @@
 package org.howard.example.consumer;
 
-import org.howard.example.common.model.User;
-import org.howard.example.common.service.UserService;
-import org.howard.hrpc.proxy.ServiceProxyFactory;
+import org.howard.hrpc.config.RpcConfig;
+import org.howard.hrpc.utils.ConfigUtils;
 
 /**
  * @Author HowardLiu
  */
 public class BaseConsumerExample {
     public static void main(String[] args) {
-        User user = new User();
-        user.setName("howard");
-        // 调用服务提供者 UserService
-        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
-        User u = userService.getUser(user);
-        System.out.println(u);
-
-        int num = userService.getNum();
-        System.out.println(num);
+        RpcConfig hrpc = ConfigUtils.loadConfig(RpcConfig.class, "hrpc");
+        System.out.println(hrpc);
     }
 }
