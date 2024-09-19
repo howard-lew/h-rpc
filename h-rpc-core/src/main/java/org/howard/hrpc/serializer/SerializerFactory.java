@@ -9,6 +9,7 @@ import org.howard.hrpc.spi.SpiLoader;
  */
 public class SerializerFactory {
     static {
+        // 加载所有 Serializer 实现类的 Class 对象
         SpiLoader.load(Serializer.class);
     }
 
