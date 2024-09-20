@@ -25,6 +25,15 @@
             <version>4.5.10</version>
         </dependency>
 
+        <!-- 注册中心 -->
+        <!-- https://mvnrepository.com/artifact/io.etcd/jetcd-core -->
+        <dependency>
+            <groupId>io.etcd</groupId>
+            <artifactId>jetcd-core</artifactId>
+            <version>0.8.3</version>
+        </dependency>
+
+
         <!-- 序列化 -->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>

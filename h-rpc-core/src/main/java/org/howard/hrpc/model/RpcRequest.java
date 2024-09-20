@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+import static org.howard.hrpc.constant.RpcConstant.DEFAULT_SERVICE_VERSION;
+
 /**
  * RPC 请求
  *
  * @Author HowardLiu
- * 
  */
 @Data
 @AllArgsConstructor
@@ -34,4 +35,8 @@ public class RpcRequest implements Serializable {
      * 参数类型
      */
     private Class<?>[] paramTypes;
+    /**
+     * 服务版本
+     */
+    private String serviceVersion = DEFAULT_SERVICE_VERSION;
 }

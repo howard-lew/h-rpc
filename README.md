@@ -1,3 +1,25 @@
+## 目录结构
+
+```
+example-common-------示例的公共结构
+example-consumer-----服务消费者示例
+example-provider-----服务提供者示例
+h-rpc-base-----------hrpc框架的精简版
+h-rpc-core-----------hrpc框架
+	|-config
+	|-constant
+	|-model
+	|-proxy
+	|-registry
+	|-serializer
+	|-server
+	|-spi
+	|-utils
+	|-
+```
+
+
+
 ## h-rpc-base 架构图
 
 ![](./docs/images/h-rpc-base.png)

@@ -16,10 +16,10 @@ public class SerializerFactory {
     /**
      * 获取序列化器，比如 jdk -> JdkSerializer
      *
-     * @param key
+     * @param serializerKey
      * @return
      */
-    public static Serializer getInstance(String key) {
-        return SpiLoader.getInstance(Serializer.class, key);
+    public static Serializer getInstance(String serializerKey) {
+        return SpiLoader.getInstance(Serializer.class, serializerKey);
     }
 }
