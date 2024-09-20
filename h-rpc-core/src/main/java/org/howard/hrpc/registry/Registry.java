@@ -30,7 +30,7 @@ public interface Registry {
      *
      * @param serviceMetaInfo
      */
-    void unregister(ServiceMetaInfo serviceMetaInfo)throws Exception;
+    void unregister(ServiceMetaInfo serviceMetaInfo) throws Exception;
 
     /**
      * 服务发现（获取服务节点列表），消费端
@@ -44,4 +44,9 @@ public interface Registry {
      * 服务销毁
      */
     void destroy();
+
+    /**
+     * 心跳检测（服务端）
+     */
+    void heartbeat();
 }
