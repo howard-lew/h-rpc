@@ -6,7 +6,6 @@ import cn.hutool.cron.CronUtil;
 import cn.hutool.cron.task.Task;
 import cn.hutool.json.JSONUtil;
 import io.etcd.jetcd.*;
-import io.etcd.jetcd.kv.GetResponse;
 import io.etcd.jetcd.options.GetOption;
 import io.etcd.jetcd.options.PutOption;
 import io.etcd.jetcd.watch.WatchEvent;
@@ -19,8 +18,6 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 /**
@@ -183,25 +180,4 @@ public class EtcdRegistry implements Registry {
         }
     }
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        try (Client client = Client.builder().endpoints("http://localhost:2379").build()) {
-
-            KV kvClient = client.getKVClient();
-            ByteSequence key = ByteSequence.from("test_key".getBytes());
-            ByteSequence value = ByteSequence.from("test_value".getBytes());
-
-            // put the key-value
-            kvClient.put(key, value).get();
-
-            // get the CompletableFuture
-            CompletableFuture<GetResponse> getFuture = kvClient.get(key);
-
-            // get the value from CompletableFuture
-            GetResponse response = getFuture.get();
-            System.out.println(response);
-
-            // delete the key
-            kvClient.delete(key).get();
-        }
-    }
 }
