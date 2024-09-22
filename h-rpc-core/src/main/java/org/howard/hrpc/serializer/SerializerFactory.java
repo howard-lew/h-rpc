@@ -16,7 +16,7 @@ public class SerializerFactory {
     /**
      * 获取序列化器，比如 jdk -> JdkSerializer
      *
-     * @param serializerKey
+     * @param serializerKey 见 {@link SerializerKeys}
      * @return
      */
     public static Serializer getInstance(String serializerKey) {

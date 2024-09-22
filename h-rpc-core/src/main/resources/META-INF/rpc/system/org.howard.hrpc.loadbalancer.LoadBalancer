@@ -1,0 +1,3 @@
+roundRobin=org.howard.hrpc.loadbalancer.RoundRobinLoadBalancer
+random=org.howard.hrpc.loadbalancer.RandomLoadBalancer
+consistentHash=org.howard.hrpc.loadbalancer.ConsistentHashLoadBalancer

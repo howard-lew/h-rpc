@@ -5,6 +5,9 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import org.howard.hrpc.RpcApplication;
 import org.howard.hrpc.config.RegistryConfig;
+import org.howard.hrpc.config.RpcConfig;
+import org.howard.hrpc.loadbalancer.LoadBalancer;
+import org.howard.hrpc.loadbalancer.LoadBalancerFactory;
 import org.howard.hrpc.model.RpcRequest;
 import org.howard.hrpc.model.RpcResponse;
 import org.howard.hrpc.model.ServiceMetaInfo;
@@ -15,6 +18,7 @@ import org.howard.hrpc.serializer.SerializerFactory;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.howard.hrpc.constant.RpcConstant.DEFAULT_SERVICE_VERSION;
@@ -40,11 +44,16 @@ public class ServiceProxy implements InvocationHandler {
                 .build();
 
         try {
+            RpcConfig rpcConfig = RpcApplication.getRpcConfig();
             byte[] serialized = serializer.serialize(rpcRequest);
 
-            String serviceAddress = discoverAddress(serviceName);
+            // 服务发现
+            List<ServiceMetaInfo> serviceMetaInfoList = discoverServices(rpcConfig, serviceName);
 
-            try (HttpResponse response = HttpRequest.post(serviceAddress)
+            // 负载均衡
+            ServiceMetaInfo selectedServiceMetaInfo = loadBalancing(rpcConfig, rpcRequest, serviceMetaInfoList);
+
+            try (HttpResponse response = HttpRequest.post(selectedServiceMetaInfo.getServiceAddress())
                     .body(serialized)
                     .execute()) {
                 byte[] bytes = response.bodyBytes();
@@ -59,14 +68,32 @@ public class ServiceProxy implements InvocationHandler {
     }
 
     /**
+     * 服务负载均衡
+     *
+     * @param rpcConfig
+     * @param rpcRequest
+     * @param serviceMetaInfoList
+     * @return
+     */
+    private ServiceMetaInfo loadBalancing(RpcConfig rpcConfig, RpcRequest rpcRequest, List<ServiceMetaInfo> serviceMetaInfoList) {
+        LoadBalancer loadBalancer = LoadBalancerFactory.getLoadBalancer(rpcConfig.getLoadBalancer());
+        HashMap<String, Object> requestParams = new HashMap<String, Object>() {{
+            put("methodName", rpcRequest.getMethodName());
+        }};
+        ServiceMetaInfo selectedServiceMetaInfo = loadBalancer.select(requestParams, serviceMetaInfoList);
+        return selectedServiceMetaInfo;
+    }
+
+    /**
      * 从注册中心获取服务地址
      *
+     * @param rpcConfig
      * @param serviceName
      * @return
      */
-    private String discoverAddress(String serviceName) {
+    private List<ServiceMetaInfo> discoverServices(RpcConfig rpcConfig, String serviceName) {
         // 引入注册中心和服务发现机制
-        RegistryConfig registryConfig = RpcApplication.getRpcConfig().getRegistryConfig();
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
         Registry registry = RegistryFactory.getRegistry(registryConfig.getRegistry());
         ServiceMetaInfo serviceMetaInfo = new ServiceMetaInfo() {{
             setServiceName(serviceName);
@@ -76,7 +103,6 @@ public class ServiceProxy implements InvocationHandler {
         if (CollectionUtil.isEmpty(serviceMetaInfoList)) {
             throw new RuntimeException("暂无服务地址");
         }
-        // todo 负载均衡
-        return serviceMetaInfoList.get(0).getServiceAddress();
+        return serviceMetaInfoList;
     }
 }

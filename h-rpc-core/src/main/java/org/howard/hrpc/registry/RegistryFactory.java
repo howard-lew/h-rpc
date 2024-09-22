@@ -15,7 +15,7 @@ public class RegistryFactory {
     /**
      * 获取注册中心实例
      *
-     * @param registryKey
+     * @param registryKey 见{@link RegistryKeys}
      * @return
      */
     public static Registry getRegistry(String registryKey) {
