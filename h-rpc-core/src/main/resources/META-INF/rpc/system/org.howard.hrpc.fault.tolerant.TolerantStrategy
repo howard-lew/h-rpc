@@ -1,0 +1,2 @@
+failFast=org.howard.hrpc.fault.tolerant.FailFastTolerantStrategy
+failSafe=org.howard.hrpc.fault.tolerant.FailSafeTolerantStrategy

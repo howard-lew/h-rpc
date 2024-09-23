@@ -8,6 +8,8 @@ import org.howard.hrpc.config.RegistryConfig;
 import org.howard.hrpc.config.RpcConfig;
 import org.howard.hrpc.fault.retry.RetryStrategy;
 import org.howard.hrpc.fault.retry.RetryStrategyFactory;
+import org.howard.hrpc.fault.tolerant.TolerantStrategy;
+import org.howard.hrpc.fault.tolerant.TolerantStrategyFactory;
 import org.howard.hrpc.loadbalancer.LoadBalancer;
 import org.howard.hrpc.loadbalancer.LoadBalancerFactory;
 import org.howard.hrpc.model.RpcRequest;
@@ -46,8 +48,8 @@ public class ServiceProxy implements InvocationHandler {
                 .paramTypes(method.getParameterTypes())
                 .build();
 
+        RpcConfig rpcConfig = RpcApplication.getRpcConfig();
         try {
-            RpcConfig rpcConfig = RpcApplication.getRpcConfig();
             byte[] serialized = serializer.serialize(rpcRequest);
 
             // 服务发现
@@ -72,7 +74,9 @@ public class ServiceProxy implements InvocationHandler {
                 return rpcResponse.getData();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            // 使用容错机制
+            TolerantStrategy tolerantStrategy = TolerantStrategyFactory.getInstance(rpcConfig.getTolerantStrategy());
+            tolerantStrategy.doTolerant(null, e);
         }
         return null;
     }
