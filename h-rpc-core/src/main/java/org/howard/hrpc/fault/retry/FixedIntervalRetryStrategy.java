@@ -2,7 +2,6 @@ package org.howard.hrpc.fault.retry;
 
 import com.github.rholder.retry.*;
 import lombok.extern.slf4j.Slf4j;
-import org.howard.hrpc.model.RpcResponse;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
