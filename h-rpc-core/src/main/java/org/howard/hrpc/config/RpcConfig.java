@@ -1,6 +1,7 @@
 package org.howard.hrpc.config;
 
 import lombok.Data;
+import org.howard.hrpc.fault.retry.RetryStrategyKeys;
 import org.howard.hrpc.loadbalancer.LoadBalancerKeys;
 import org.howard.hrpc.serializer.SerializerKeys;
 
@@ -43,4 +44,8 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.CONSISTENT_HASH;
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
 }

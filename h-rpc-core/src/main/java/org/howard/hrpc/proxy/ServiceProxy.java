@@ -6,6 +6,8 @@ import cn.hutool.http.HttpResponse;
 import org.howard.hrpc.RpcApplication;
 import org.howard.hrpc.config.RegistryConfig;
 import org.howard.hrpc.config.RpcConfig;
+import org.howard.hrpc.fault.retry.RetryStrategy;
+import org.howard.hrpc.fault.retry.RetryStrategyFactory;
 import org.howard.hrpc.loadbalancer.LoadBalancer;
 import org.howard.hrpc.loadbalancer.LoadBalancerFactory;
 import org.howard.hrpc.model.RpcRequest;
@@ -20,6 +22,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import static org.howard.hrpc.constant.RpcConstant.DEFAULT_SERVICE_VERSION;
 
@@ -53,9 +56,16 @@ public class ServiceProxy implements InvocationHandler {
             // 负载均衡
             ServiceMetaInfo selectedServiceMetaInfo = loadBalancing(rpcConfig, rpcRequest, serviceMetaInfoList);
 
-            try (HttpResponse response = HttpRequest.post(selectedServiceMetaInfo.getServiceAddress())
-                    .body(serialized)
-                    .execute()) {
+            HttpRequest httpRequest = HttpRequest.post(selectedServiceMetaInfo.getServiceAddress())
+                    .body(serialized);
+            // 使用重试机制
+            RetryStrategy retry = RetryStrategyFactory.getInstance(rpcConfig.getRetryStrategy());
+            try (HttpResponse response = retry.doRetry(new Callable<HttpResponse>() {
+                @Override
+                public HttpResponse call() {
+                    return httpRequest.execute();
+                }
+            })) {
                 byte[] bytes = response.bodyBytes();
 
                 RpcResponse rpcResponse = serializer.deserialize(bytes, RpcResponse.class);
