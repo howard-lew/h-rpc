@@ -193,7 +193,7 @@ public interface Registry {
 
 使用 `TreeMap` 充当哈希环，`TreeMap` 在 Java 中并没有直接表现为一个“环”，它是一个基于**红黑树**实现的有序映射（`SortedMap`）。它按键的自然顺序对键值对进行排序。因此，`TreeMap` 本质上是一个**线性结构**，而不是环形结构。
 
-不过，在一致性哈希的实现中，可以通过一种巧妙的方式将 `TreeMap` 的线性结构**逻辑上模拟成一个“环”**。具体做法是将哈希值映射到 `TreeMap` 中的键，并且通过特定的方式查找最近的节点，从而模拟环形查找的过程。
+当需要找到某个对象对应的服务器节点时，会对该对象计算哈希值，然后，在 `TreeMap` 中查找**第一个大于等于该哈希值的节点**。这个过程使用 `TreeMap` 提供的 `ceilingEntry()` 方法来查找最近的节点。也就是说 TreeMap 提供的方法就可以将 `TreeMap` 的线性结构**逻辑上模拟成一个“环”**。
 
 > 负载均衡同样被设计成 SPI 可插拔的形式，开发者可自定义负载均衡算法
 
@@ -225,6 +225,16 @@ guava-retrying 是一个线程安全的 Java 重试类库，提供了一种通�
 
 > 同样，开发者可以通过 SPI 来制定自己的容错方案
 
-## 启动机制和注解驱动
+## 开发 spring-boot-starter
 
 基于 springboot starter 启动器开发了 springboot starter 版本的 hrpc 框架，使用 `@EnableRpc` 开启框架支持，`@RpcService` 标记服务，`@RpcReference` 注入服务，使用这三个注解来代替编码的繁琐，详情的消费端和服务端使用见 example-springboot-consumer 和 example-springboot-provider 示例。
+
+> 在 spring boot 启动这个框架时如何区分是服务消费端还是提供端（因为提供端需要启动 Vert.x 服务器）？
+
+- 在 `@EnableRpc` 中使用 needServer 来区分消费端还是提供端。
+- 通过实现 `ImportBeanDefinitionRegistrar` 接口，重写 `registerBeanDefinitions()` 方法来监听 spring 扫描到的注解来做出一些动作，可以监听 `@EnableRpc` 注解来区分服务消费端还是提供端。
+
+> 如何通过 `@RpcService` 和 `@RpcReference` 两个注解完成服务调用？
+
+通过 `BeanPostProcessor` 这样一个 spring bean 全局的钩子函数（`postProcessAfterInitialization`）来判断当前 bean 是否持有 `@RpcService` 或 `@RpcReference` 注解，如果有就注入代理对象或将当前的 bean 注册到注册中心。
+
