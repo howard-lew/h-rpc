@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 负载均衡器（消费端使用）
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public interface LoadBalancer {
     /**

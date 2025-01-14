@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 注册中心
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public interface Registry {
     /**

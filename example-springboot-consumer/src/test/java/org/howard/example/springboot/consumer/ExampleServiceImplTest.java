@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
 
 /**
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 @SpringBootTest
 class ExampleServiceImplTest {

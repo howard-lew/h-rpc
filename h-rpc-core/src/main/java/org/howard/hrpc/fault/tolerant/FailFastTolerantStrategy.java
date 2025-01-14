@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 快速失败容错策略
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public class FailFastTolerantStrategy implements TolerantStrategy {
     @Override

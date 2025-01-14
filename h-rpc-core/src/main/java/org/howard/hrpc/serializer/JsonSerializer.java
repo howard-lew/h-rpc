@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * JSON 序列化器
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public class JsonSerializer implements Serializer {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();

@@ -5,7 +5,7 @@ import org.howard.hrpc.spi.SpiLoader;
 /**
  * 重试策略工厂
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public class RetryStrategyFactory {
     static {

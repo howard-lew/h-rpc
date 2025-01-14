@@ -5,7 +5,7 @@ import org.howard.hrpc.spi.SpiLoader;
 /**
  * 注册中心工厂（用于创建注册中心实例）
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public class RegistryFactory {
     static {

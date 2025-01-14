@@ -3,7 +3,7 @@ package org.howard.hrpc.config;
 import lombok.Data;
 
 /**
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 @Data
 public class RegistryConfig {

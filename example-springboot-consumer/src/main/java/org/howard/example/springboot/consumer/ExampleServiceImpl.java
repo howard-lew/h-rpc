@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * 示例服务实现类
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 @Service
 public class ExampleServiceImpl {

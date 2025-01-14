@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 服务元信息（用于服务注册）
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 @Data
 public class ServiceMetaInfo {

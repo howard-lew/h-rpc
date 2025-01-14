@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 /**
  * 重试策略
  *
- * @Author <a href="https://github.com/weedsx">HowardLiu</a>
+ * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
  */
 public interface RetryStrategy {
     /**
