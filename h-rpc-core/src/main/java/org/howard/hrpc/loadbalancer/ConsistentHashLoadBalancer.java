@@ -12,7 +12,7 @@ import java.util.TreeMap;
 /**
  * 一致性哈希负载均衡器
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public class ConsistentHashLoadBalancer implements LoadBalancer {
     /**

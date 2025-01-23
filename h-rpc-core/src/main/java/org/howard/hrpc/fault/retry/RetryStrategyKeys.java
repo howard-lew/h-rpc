@@ -3,7 +3,7 @@ package org.howard.hrpc.fault.retry;
 /**
  * 重试策略键名常量
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public interface RetryStrategyKeys {
     /**

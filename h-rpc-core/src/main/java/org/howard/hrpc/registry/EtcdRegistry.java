@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * etcd 注册中心实现
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 @Slf4j
 public class EtcdRegistry implements Registry {

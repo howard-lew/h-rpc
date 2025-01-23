@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Kryo 序列化器
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public class KryoSerializer implements Serializer {
     private static final ThreadLocal<Kryo> KRYO_THREAD_LOCAL = ThreadLocal.withInitial(() -> {

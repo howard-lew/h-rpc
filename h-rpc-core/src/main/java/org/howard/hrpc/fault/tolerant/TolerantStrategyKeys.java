@@ -3,7 +3,7 @@ package org.howard.hrpc.fault.tolerant;
 /**
  * 容错策略键
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public interface TolerantStrategyKeys {
     /**

@@ -12,7 +12,7 @@ import org.springframework.core.type.AnnotationMetadata;
 /**
  * Rpc 框架启动
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 @Slf4j
 public class RpcInitBootstrap implements ImportBeanDefinitionRegistrar {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * 用户服务实现类
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 @Service
 @RpcService

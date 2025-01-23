@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 /**
  * 启用 Rpc 注解
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

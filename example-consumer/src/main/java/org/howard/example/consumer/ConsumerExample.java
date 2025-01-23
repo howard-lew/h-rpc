@@ -8,7 +8,7 @@ import org.howard.hrpc.proxy.ServiceProxyFactory;
 /**
  * 服务消费者示例
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public class ConsumerExample {
     public static void main(String[] args) {

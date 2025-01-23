@@ -5,7 +5,7 @@ import org.howard.hrpc.spi.SpiLoader;
 /**
  * 序列化器工厂（工厂模式，用于获取序列化器对象）
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 public class SerializerFactory {
     static {

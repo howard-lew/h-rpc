@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 /**
  * 服务提供者注解（用于注册服务）
  *
- * @Author <a href="https://github.com/yige-howard">HowardLiu</a>
+ * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
