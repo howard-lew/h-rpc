@@ -13,7 +13,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 /**
  * Rpc 服务提供者启动
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class RpcProviderBootstrap implements BeanPostProcessor {
     /**

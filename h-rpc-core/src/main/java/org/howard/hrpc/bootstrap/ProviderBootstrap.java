@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 服务提供者启动类（初始化）
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class ProviderBootstrap {
     /**

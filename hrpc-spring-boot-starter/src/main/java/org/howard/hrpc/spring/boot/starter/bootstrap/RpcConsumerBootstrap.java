@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 /**
  * Rpc 服务消费者启动
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class RpcConsumerBootstrap implements BeanPostProcessor {
     /**

@@ -5,7 +5,7 @@ import org.howard.hrpc.spi.SpiLoader;
 /**
  * 负载均衡工厂
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class LoadBalancerFactory {
     static {

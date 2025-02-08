@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 注册中心测试
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class RegistryTest {
 

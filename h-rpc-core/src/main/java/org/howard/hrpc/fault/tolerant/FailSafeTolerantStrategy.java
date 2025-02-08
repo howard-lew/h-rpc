@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 容错策略-失败安全
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 @Slf4j
 public class FailSafeTolerantStrategy implements TolerantStrategy {

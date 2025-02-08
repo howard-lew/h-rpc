@@ -5,7 +5,7 @@ import org.howard.hrpc.RpcApplication;
 /**
  * 服务消费者启动类（初始化）
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 public class ConsumerBootstrap {
     /**

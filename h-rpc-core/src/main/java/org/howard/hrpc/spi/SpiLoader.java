@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * SPI 加载器
  * 自定义实现，支持键值对映射
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 @Slf4j
 public class SpiLoader {

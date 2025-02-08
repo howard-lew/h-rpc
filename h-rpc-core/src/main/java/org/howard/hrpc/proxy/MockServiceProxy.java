@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /**
  * Mock 服务代理
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 @Slf4j
 public class MockServiceProxy implements InvocationHandler {

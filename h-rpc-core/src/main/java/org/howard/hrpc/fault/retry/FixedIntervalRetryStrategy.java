@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 固定时间间隔重试策略
  *
- * @Author <a href="https://github.com/howard-lew">HowardLiu</a>
+ * @Author <a href="https://github.com/howard12358">HowardLiu</a>
  */
 @Slf4j
 public class FixedIntervalRetryStrategy implements RetryStrategy {
